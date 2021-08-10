@@ -44,6 +44,24 @@ public class Desafio04 {
 		return salarioTotal;
 	}
 
+	public static void adicionalExtra(double salarioBase) {
+
+		Scanner pega = new Scanner(System.in);
+
+		String selecaoHora;
+
+		System.out.println("Digite: Sim Calcular hora Extra \n  Não - Para finalizar o Calculo");
+		selecaoHora = pega.next();
+
+		if (selecaoHora.equalsIgnoreCase(selecaoHora)) {
+			double salarioTotal = salarioBase + horaExtra(salarioBase);
+			System.out.println("Salario do Total é: " + salarioTotal);
+		} else {
+			System.out.println("Salario Base: " + salarioBase);
+		}
+
+	}
+
 	public static void main(String[] args) {
 
 		/*
@@ -56,10 +74,10 @@ public class Desafio04 {
 		 * 
 		 */
 		Scanner pega = new Scanner(System.in);
-		
+
 		double salarioBase;
-		double salarioTotal =0;
-		String selecaoHoraString = "Sim";
+		double salarioTotal = 0;
+		String selecaoHora = "Sim";
 		int aulaSemanais = 0;
 		int cargoProfessor = 0;
 		double horaAula;
@@ -70,7 +88,7 @@ public class Desafio04 {
 
 		switch (cargoProfessor) {// Professor Horista
 		case 1:
-			
+
 			System.out.println("Digite numero de Aula Semanais: ");
 			aulaSemanais = pega.nextInt();
 			System.out.println("Digite valor hora Aula");
@@ -79,42 +97,25 @@ public class Desafio04 {
 			salarioBase = profAulista(horaAula, aulaSemanais);
 			System.out.println("Salario Base: " + salarioBase);
 
-		
-			System.out.println("Digite: Sim Calcular hora Extra \n  Não - Para finalizar o Calculo");
-			selecaoHoraString = pega.next();
-			
-			
-			if (selecaoHoraString.equalsIgnoreCase(selecaoHoraString)) {
-				 salarioTotal = salarioBase + horaExtra(salarioBase);
-				System.out.println("Salario do Total é: " + salarioTotal);
-			}
-			else {
-				System.out.println("Salario Base: "+salarioBase);
-			}
+			/* adicionalExtra
+			 * Metodo que faz o adicional notoruno se calculado caso docente tenha hora extra
+			 * para receber.
+			 */
+			adicionalExtra(salarioBase);
+
 			break;
+
+		case 2:
+			System.out.println("Digite o valor da hora paga");
+			horaAula = pega.nextDouble();
+
 			
-		case 2: 
-			 System.out.println("Digite o valor da hora paga");
-			 	horaAula = pega.nextDouble();
-			 
-				
-				System.out.println("Digite:\n Sim Calcular hora Extra \n    Não - Para finalizar o Calculo");
-				selecaoHoraString = pega.next();
-				salarioBase = profMensalista(horaAula);
-				
-				
-				if (selecaoHoraString.equalsIgnoreCase(selecaoHoraString)) {
-					 salarioTotal = salarioBase + horaExtra(salarioBase);
-					System.out.println("Salario do Total é: " + salarioTotal);
-				}
-				else {
-					System.out.println("Salario Base: %.2 "+salarioBase);
-				}
-			 	
+			salarioBase = profMensalista(horaAula);
 			
-			
+			adicionalExtra(salarioBase);
 
 		default:
+			System.out.println("Numeros Invalido");
 			break;
 		}
 
