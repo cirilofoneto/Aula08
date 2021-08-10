@@ -84,6 +84,7 @@ public class Desafio04 {
 
 		System.out.println("------* Calcular Salario Professsor * -----");
 		System.out.println("1 - Para Professor Horista 2 - Para Professor Mensalista");
+		
 		cargoProfessor = pega.nextInt();
 
 		switch (cargoProfessor) {// Professor Horista
@@ -97,9 +98,9 @@ public class Desafio04 {
 			salarioBase = profAulista(horaAula, aulaSemanais);
 			System.out.println("Salario Base: " + salarioBase);
 
-			/* adicionalExtra
-			 * Metodo que faz o adicional notoruno se calculado caso docente tenha hora extra
-			 * para receber.
+			/*
+			 * adicionalExtra Metodo que faz o adicional notoruno se calculado caso docente
+			 * tenha hora extra para receber.
 			 */
 			adicionalExtra(salarioBase);
 
@@ -108,10 +109,8 @@ public class Desafio04 {
 		case 2:
 			System.out.println("Digite o valor da hora paga");
 			horaAula = pega.nextDouble();
-
-			
 			salarioBase = profMensalista(horaAula);
-			
+
 			adicionalExtra(salarioBase);
 
 		default:
